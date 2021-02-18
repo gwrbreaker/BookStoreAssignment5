@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IQueryable<Books>
+<!--Title-->
+<h1 class="text-center">Here are Spencer Hilton's top 10 books:</h1>
+<br />
+<!--Image or book rainbow, with padding so that it more or less lines up with the table column colors-->
+<img style="padding-left:35px" class="text-center" src="~/img/books.jpg" />
+<br />
+
+<table>
+    <thead>
+        <tr class="text-center">
+            <th>Book ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>ISBN</th>
+            <th>Classification</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <!--This goes through the enumeration to get all the inputed values-->
+    <tbody>
+        @foreach (BookStoreAssignment5.Models.Books b in Model)
+        {
+            <tr class="text-center">
+                <td class="table-striped">@b.BookID</td>
+                <td class="table-warning">@b.title</td>
+                <td class="table-success">@b.authorFirst @b.authorLast</td>
+                <td class="table-primary">@b.publisher</td>
+                <td class="table-info">@b.ISBN</td>
+                <td class="table-dark">@b.classification</td>
+                <td class="table-danger">@b.category</td>
+                <td class="table-active">$@b.price</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
