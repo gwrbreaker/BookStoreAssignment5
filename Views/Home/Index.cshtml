@@ -2,17 +2,30 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model IQueryable<Books>
+<!--For my 3 bootstrap classes, I created a class called "purple" in the css folder, which I had used in the title. I also researched and implemented the 
+    commands to make things appear in bold and in italics. The bold I used in the price section of every iteration so that the price column numbers really stand out from the 
+    rest of the numbers surrounding it like IBSN and number of pages. I used the italics command to make the phrase under it that says 
+    "here is the info on each of them" italicized. I also experimented a lot more with other classes and made the page navigation button group unique. -->
+
+@model BookListViewModel
+
 <!--Title-->
-<h1 class="text-center">Here are Spencer Hilton's top 10 books:</h1>
+<div class="purple">
+    <h1 class="text-center">Here are Spencer Hilton's top 10 books:</h1>
+</div>
+
 <br />
-<!--Image or book rainbow, with padding so that it more or less lines up with the table column colors-->
+<!--Image of book rainbow, with padding so that it more or less lines up with the table column colors-->
 <img style="padding-left:35px" class="text-center" src="~/img/books.jpg" />
 <br />
-
-<table>
-    <thead>
-        <tr class="text-center">
+<div class="row m-lg-auto p-3">
+    <h3><em>Here is the info on each of them:</em></h3>
+</div>
+<br />
+<table style="padding-left:50px" class="text-center">
+    <thead style="padding-left:35px" class="text-center">
+        <tr style="padding-left:35px" class="text-center">
+            
             <th>Book ID</th>
             <th>Title</th>
             <th>Author</th>
@@ -21,13 +34,15 @@
             <th>Classification</th>
             <th>Category</th>
             <th>Price</th>
+            <th># of Pages</th>
         </tr>
     </thead>
     <!--This goes through the enumeration to get all the inputed values-->
-    <tbody>
-        @foreach (BookStoreAssignment5.Models.Books b in Model)
+    <tbody style="padding-left:50px" class="text-center">
+        @foreach (BookStoreAssignment5.Models.Books b in Model.Books)
         {
-            <tr class="text-center">
+            <tr style="padding-left:35px" class="text-center">
+                
                 <td class="table-striped">@b.BookID</td>
                 <td class="table-warning">@b.title</td>
                 <td class="table-success">@b.authorFirst @b.authorLast</td>
@@ -35,9 +50,13 @@
                 <td class="table-info">@b.ISBN</td>
                 <td class="table-dark">@b.classification</td>
                 <td class="table-danger">@b.category</td>
-                <td class="table-active">$@b.price</td>
+                <td class="table-active"><strong>$@b.price</strong></td>
+                <td class="table-warning">@b.pages pages</td>
 
             </tr>
         }
     </tbody>
 </table>
+
+<br />
+

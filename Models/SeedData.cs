@@ -34,7 +34,8 @@ namespace BookStoreAssignment5.Models
                         ISBN = "978-0451419439",
                         classification = "Fiction",
                         category = "Classic",
-                        price = 9.95
+                        price = 9.95,
+                        pages = 1488
                     },
                     new Books
                     {
@@ -46,7 +47,8 @@ namespace BookStoreAssignment5.Models
                         ISBN = "978-0743270755",
                         classification = "Non-Fiction",
                         category = "Biography",
-                        price = 14.58
+                        price = 14.58,
+                        pages = 944
                     },
                     new Books
                     {
@@ -58,7 +60,8 @@ namespace BookStoreAssignment5.Models
                         ISBN = "978-0553384611",
                         classification = "Non-Fiction",
                         category = "Biography",
-                        price = 21.54
+                        price = 21.54,
+                        pages = 832
                     },
                     new Books
                     {
@@ -70,7 +73,8 @@ namespace BookStoreAssignment5.Models
                         ISBN = "978-9812981254",
                         classification = "Non-Ficton",
                         category = "Biography",
-                        price = 11.61
+                        price = 11.61,
+                        pages = 864
                     },
                     new Books
                     {
@@ -82,7 +86,8 @@ namespace BookStoreAssignment5.Models
                         ISBN = "978-0812974492",
                         classification = "Non-Ficton",
                         category = "Historical",
-                        price = 13.33
+                        price = 13.33,
+                        pages = 528
                     },
                      new Books
                      {
@@ -94,7 +99,8 @@ namespace BookStoreAssignment5.Models
                          ISBN = "978-0804171281",
                          classification = "Ficton",
                          category = "Historical Fiction",
-                         price = 15.95
+                         price = 15.95,
+                         pages = 288
                      },
                       new Books
                       {
@@ -106,7 +112,8 @@ namespace BookStoreAssignment5.Models
                           ISBN = "978-1455586691",
                           classification = "Non-Ficton",
                           category = "Self-Help",
-                          price = 14.99
+                          price = 14.99,
+                          pages = 304
                       },
                        new Books
                        {
@@ -118,7 +125,8 @@ namespace BookStoreAssignment5.Models
                            ISBN = "978-1455523023",
                            classification = "Non-Ficton",
                            category = "Self-Help",
-                           price = 21.66
+                           price = 21.66,
+                           pages = 240
                        },
                         new Books
                         {
@@ -130,8 +138,10 @@ namespace BookStoreAssignment5.Models
                             ISBN = "978-1591847984",
                             classification = "Non-Ficton",
                             category = "Business",
-                            price = 29.16
+                            price = 29.16,
+                            pages = 400
                         },
+                         
                          new Books
                          {
                              title = "Sycamore Row",
@@ -141,7 +151,44 @@ namespace BookStoreAssignment5.Models
                              ISBN = "978-0553393613",
                              classification = "Ficton",
                              category = "Thrillers",
-                             price = 15.03
+                             price = 15.03,
+                             pages = 642
+                         },
+                         new Books
+                         {
+                             title = "Mistborn: The Final Empire",
+                             authorLast = "Sanderson",
+                             authorFirst = "Brandon",
+                             publisher = "Tor Books",
+                             ISBN = "076-5311789374",
+                             classification = "Ficton",
+                             category = "Fantasy",
+                             price = 24.44,
+                             pages = 642
+                         },
+                         new Books
+                         {
+                             title = "The Well of Ascention",
+                             authorLast = "Sanderson",
+                             authorFirst = "Brandon",
+                             publisher = "Tor Books",
+                             ISBN = "978-0765316882",
+                             classification = "Ficton",
+                             category = "Fantasy",
+                             price = 23.22,
+                             pages = 781
+                         },
+                         new Books
+                         {
+                             title = "The Hero of Ages",
+                             authorLast = "Sanderson",
+                             authorFirst = "Brandon",
+                             publisher = "Tor Books",
+                             ISBN = "978-0765316899",
+                             classification = "Ficton",
+                             category = "Fantasy",
+                             price = 19.99,
+                             pages = 572
                          }
 
 

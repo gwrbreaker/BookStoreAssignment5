@@ -55,12 +55,15 @@ namespace BookStoreAssignment5
             app.UseRouting();
 
             app.UseAuthorization();
-
+            //This is where the endpoint of the URL was edited so that if you type in "2" or "3" it will take you to that page
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                   "pagination",
+                   "P{page}",
+                   new { Controller = "Home", action = "Index" });
+
+                endpoints.MapDefaultControllerRoute();
             });
 
             SeedData.EnsurePopulated(app);

@@ -69,3 +69,21 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.btn1 {
+    background-color: #FFCC99;
+    border: 1px solid yellow;
+    cursor: pointer;
+    color: Silver;
+    border-radius: 4px;
+}
+
+.btn1:hover {
+    background-color: #FF9933;
+    box-shadow: 0 0 10px #FF99CC;
+    color: Menu;
+}
+/*This was the class that I added*/
+.purple {
+    color: purple;
+}

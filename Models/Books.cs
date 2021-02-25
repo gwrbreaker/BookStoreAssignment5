@@ -30,6 +30,8 @@ namespace BookStoreAssignment5.Models
         public string category { get; set; }
         [Required]
         public double price { get; set; }
+        [Required]
+        public int pages { get; set; }
         
 
     }
