@@ -1,0 +1,17 @@
+﻿@model Books
+
+<!--This is the partial view that is drawn on from the index page to create the table of books data-->
+<tr style="padding-left:35px" class="text-center">
+
+    <td class="table-striped">@Model.BookID</td>
+    <td class="table-warning">@Model.title</td>
+    <td class="table-success">@Model.authorFirst @Model.authorLast</td>
+    <td class="table-primary">@Model.publisher</td>
+    <td class="table-info">@Model.ISBN</td>
+    <td class="table-dark">@Model.classification</td>
+    <td class="table-danger">@Model.category</td>
+    <td class="table-active"><strong>$@Model.price</strong></td>
+    <td class="table-warning">@Model.pages pages</td>
+
+</tr>
+

@@ -58,6 +58,20 @@ namespace BookStoreAssignment5
             //This is where the endpoint of the URL was edited so that if you type in "2" or "3" it will take you to that page
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("catpage",
+                    "{category}/{page:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("page",
+                    "Books/{page:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                //This is where I edited the url endpoint to change based on category
+
+                endpoints.MapControllerRoute("category",
+                    "{category}",
+                    new { Controller = "Home", Action = "Index", page = 1});
+
                 endpoints.MapControllerRoute(
                    "pagination",
                    "P{page}",

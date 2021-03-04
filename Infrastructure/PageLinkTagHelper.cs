@@ -27,6 +27,8 @@ namespace BookStoreAssignment5.Infrastructure
         public ViewContext ViewContext { get; set; }
         public PagingInfo PageModel { get; set; }
         public string PageAction { get; set; }
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> PageUrlValues { get; set; } = new Dictionary<string, object>();
         //This is where the different page features including bootstrap are read 
         public bool PageClassEnabled { get; set; } = false;
         public string PageClass { get; set; }
@@ -44,7 +46,9 @@ namespace BookStoreAssignment5.Infrastructure
             for (int i = 1; i <= PageModel.TotalPages; i++)
             {
                 TagBuilder tag = new TagBuilder("a");
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { page = i });
+
+                PageUrlValues["page"] = i;
+                tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
                 //This if statement decides if the new CSS gets applied or not (or it just stays normal)
                 if (PageClassEnabled)
                 {

@@ -11,5 +11,7 @@ namespace BookStoreAssignment5.Models.ViewModels
         //the paging info
         public IEnumerable<Books> Books { get; set; }
         public PagingInfo PagingInfo { get; set; }
+
+        public string CurrentCategory { get; set; }
     }
 }

@@ -24,26 +24,34 @@ namespace BookStoreAssignment5.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(string category, int page = 1)
         {
             //Makes sure that the model is valid before it runs, if not returns the same view as before with the error message
             if (ModelState.IsValid)
             {
                 return View(new BookListViewModel
                 {
+                    //This is where the function of the category buttons are built, 
+                    //making it so that the category button of each type selects all the same
+                    //books of that category
                     Books = _repository.Books
+                        .Where(b => category == null || b.category == category)
                         .OrderBy(b => b.BookID)
                         .Skip((page - 1) * PageSize)
                         .Take(PageSize)
                     ,
                     PagingInfo = new PagingInfo
+                    //This is where the number of pages returned is calculated when filtered for 
+                    //a specific category
                     {
                         CurrentPage = page,
                         ItemsPerPage = PageSize,
-                        TotalNumItems = _repository.Books.Count()
-                    }
+                        TotalNumItems = category == null ? _repository.Books.Count() : 
+                            _repository.Books.Where(b => b.category == category).Count()
+                    },
+                    CurrentCategory = category
 
-            });
+            });;
 
                 
             }
