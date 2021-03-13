@@ -11,6 +11,7 @@ namespace BookStoreAssignment5.Models
 {
     public class SessionCart : Cart
     {
+        //This starts the cart session so that as long as the program is running the data added to the cart is saved
         public static Cart GetCart(IServiceProvider services)
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?
@@ -29,7 +30,7 @@ namespace BookStoreAssignment5.Models
             base.AddItem(books, quantity);
             Session.SetJson("Cart", this);
         }
-
+        //The override function to remove items from the JSON file that makes up the cart page
         public override void RemoveLine(Books books)
         {
             base.RemoveLine(books);

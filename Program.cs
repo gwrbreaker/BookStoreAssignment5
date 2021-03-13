@@ -15,7 +15,7 @@ namespace BookStoreAssignment5
         {
             CreateHostBuilder(args).Build().Run();
         }
-
+        //Tells the program to run whatever is in the Startup.cs file
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>

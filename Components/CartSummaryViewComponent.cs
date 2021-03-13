@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookStoreAssignment5.Components
 {
+    //This is where the cart summary view component is made by defining the different functions to produce it
     public class CartSummaryViewComponent : ViewComponent
     {
         private Cart cart;
@@ -15,7 +16,7 @@ namespace BookStoreAssignment5.Components
         {
             cart = cartService;
         }
-
+        //The view is returned to be added in
         public IViewComponentResult Invoke ()
         {
             return View(cart);
