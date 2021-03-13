@@ -24,7 +24,7 @@ namespace BookStoreAssignment5.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(string category, int page = 1)
+        public IActionResult Index(string category, int pageNum = 1)
         {
             //Makes sure that the model is valid before it runs, if not returns the same view as before with the error message
             if (ModelState.IsValid)
@@ -37,14 +37,14 @@ namespace BookStoreAssignment5.Controllers
                     Books = _repository.Books
                         .Where(b => category == null || b.category == category)
                         .OrderBy(b => b.BookID)
-                        .Skip((page - 1) * PageSize)
+                        .Skip((pageNum - 1) * PageSize)
                         .Take(PageSize)
                     ,
                     PagingInfo = new PagingInfo
                     //This is where the number of pages returned is calculated when filtered for 
                     //a specific category
                     {
-                        CurrentPage = page,
+                        CurrentPage = pageNum,
                         ItemsPerPage = PageSize,
                         TotalNumItems = category == null ? _repository.Books.Count() : 
                             _repository.Books.Where(b => b.category == category).Count()

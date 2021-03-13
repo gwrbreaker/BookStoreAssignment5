@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BookStoreAssignment5.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +22,7 @@ namespace BookStoreAssignment5
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; set; }
+        private IConfiguration Configuration { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -30,10 +31,18 @@ namespace BookStoreAssignment5
 
             services.AddDbContext<BookstoreDbContext>(options =>
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:BookstoreConnection"]);
+                options.UseSqlite(Configuration["ConnectionStrings:BookstoreConnection"]);
             });
 
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +60,8 @@ namespace BookStoreAssignment5
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseStatusCodePages();
+            app.UseSession();
 
             app.UseRouting();
 
@@ -59,25 +70,27 @@ namespace BookStoreAssignment5
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("catpage",
-                    "{category}/{page:int}",
-                    new { Controller = "Home", action = "Index" });
+                    "{category}/{pageNum:int}",
+                    new { Controller = "Home", action = "Index" , pageNum=1});
 
-                endpoints.MapControllerRoute("page",
-                    "Books/{page:int}",
-                    new { Controller = "Home", action = "Index" });
+                endpoints.MapControllerRoute("pageNum",
+                    "Books/{pageNum:int}",
+                    new { Controller = "Home", action = "Index", pageNum = 1});
 
                 //This is where I edited the url endpoint to change based on category
 
                 endpoints.MapControllerRoute("category",
                     "{category}",
-                    new { Controller = "Home", Action = "Index", page = 1});
+                    new { Controller = "Home", Action = "Index", pageNum = 1});
 
                 endpoints.MapControllerRoute(
-                   "pagination",
-                   "P{page}",
-                   new { Controller = "Home", action = "Index" });
+                   "pageNum",
+                   "{pageNum}",
+                   new { Controller = "Home", action = "Index" , pageNum = 1});
 
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
 
             SeedData.EnsurePopulated(app);

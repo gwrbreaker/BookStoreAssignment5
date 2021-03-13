@@ -16,28 +16,26 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <ul class="navbar-nav flex-grow-1">
+                </ul>
+
             </div>
         </nav>
-
     </header>
- 
     <!--For the list of css commands I implemented, see the index page-->
     <div class="container">
-       
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-
     </div>
 
     <!--This is the code for the page navigator, which in this case has CSS class changes enabled-->
-    <div 
-         page-model="@Model.PagingInfo" page-action="Index"
+    <div page-model="@Model.PagingInfo" page-action="Index"
          page-class-enabled="true" page-class="btn"
          page-class-normal="btn-danger"
          page-class-selected="btn-success"
-         page-url-category="@Model.CurrentCategory"
          class="text-center">
+
     </div>
     <br />
     <footer class="border-top footer text-muted">

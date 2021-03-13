@@ -12,6 +12,21 @@
     <td class="table-danger">@Model.category</td>
     <td class="table-active"><strong>$@Model.price</strong></td>
     <td class="table-warning">@Model.pages pages</td>
+    <td> <form id="@Model.BookID" asp-page="/Purchase" method="post">
+    <input type="hidden" asp-for="BookID" />
+    <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+    <span class="card-text p-1">
+        @Model.BookID
+        <button type="submit" class="btn-success btn-sm pull right" style="float:right">
+            Purchase
+        </button>
+    </span>
+        </form>
+        </td>
+
 
 </tr>
+
+<form> 
+</form>
 

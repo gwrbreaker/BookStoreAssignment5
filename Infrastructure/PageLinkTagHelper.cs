@@ -47,7 +47,7 @@ namespace BookStoreAssignment5.Infrastructure
             {
                 TagBuilder tag = new TagBuilder("a");
 
-                PageUrlValues["page"] = i;
+                PageUrlValues["pageNum"] = i;
                 tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
                 //This if statement decides if the new CSS gets applied or not (or it just stays normal)
                 if (PageClassEnabled)
