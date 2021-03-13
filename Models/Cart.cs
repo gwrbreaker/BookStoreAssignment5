@@ -35,7 +35,7 @@ namespace BookStoreAssignment5.Models
         public virtual void Clear() => Lines.Clear();
 
         public double ComputeTotalSum() =>
-            Lines.Sum(b => b.Books.price);
+            Lines.Sum(b => b.Books.price * b.Quantity);
 
         public class CartLine
         {

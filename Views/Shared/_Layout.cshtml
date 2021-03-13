@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - Book Store Assignment 6</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -21,6 +22,16 @@
 
             </div>
         </nav>
+        <div class="bg-dark text-white p-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col navbar-brand">CART</div>
+                    <div class="col-6 text-right">
+                        <vc:cart-summary />
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <!--For the list of css commands I implemented, see the index page-->
     <div class="container">
@@ -40,7 +51,7 @@
     <br />
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - BookStoreAssignment6 - <a asp-area="" asp-controller="Home" asp-action="Privacy"></a>
+            &copy; 2021 - BookStoreAssignment8 - <a asp-area="" asp-controller="Home" asp-action="Privacy"></a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -55,5 +66,5 @@
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
     </li>
-    
+
 </ul>-->
